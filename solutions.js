@@ -25,7 +25,7 @@ function reverseAString(s) {
     return "Please give a 1000 character short string!!!";
 }
 ;
-// reverseAString("Edge Case: Single character strings or empty strings.Hint: Look into built-in string slicing or a simple loop.")
+reverseAString("Edge Case: Single character strings or empty strings.Hint: Look into built-in string slicing or a simple loop.");
 /**
  * 2. FizzBuzz
 Task: Print numbers from 1 to n. For multiples of 3, print "Fizz"; for multiples of 5, print "Buzz"; for multiples of both, print "FizzBuzz".
@@ -54,20 +54,38 @@ Edge Case: Array with all negative numbers.
 Hint: Initialize a variable with the first element of the array.
  */
 function findLargeNumber(numArr) {
-    var largeNumber = numArr[0];
     if (numArr.length === 0)
         return "Please provide at least one number";
+    var largeNumber = numArr[0];
     for (var _i = 0, numArr_1 = numArr; _i < numArr_1.length; _i++) {
         var num = numArr_1[_i];
         if (num > largeNumber) {
             largeNumber = num;
         }
     }
-    console.log(largeNumber);
-    // if (numArr.length >= 1) {
-    //     largeNumber = Math.max(...numArr);
-    // };
     return largeNumber;
 }
 ;
 findLargeNumber([1, 2, 3, 4, 5, 6]);
+/**
+ * 4. Check for Palindrome
+Task: Determine if a word reads the same forward and backward.
+
+Input: string s
+Output: boolean
+Constraints: Case-insensitive, ignore non-alphanumeric characters if you want a challenge.
+Edge Case: "racecar" (true) vs "hello" (false).
+Hint: Compare the string with its reverse.
+ */
+function checkPalindrome(word) {
+    var reversedString = [];
+    for (var i = 0; i <= word.length; i++) {
+        reversedString.unshift(word[i]);
+    }
+    var result = reversedString.join("");
+    if (word.toLocaleLowerCase() === result.toLocaleLowerCase())
+        return true;
+    return false;
+}
+;
+console.log(checkPalindrome("jidan"));
