@@ -1,14 +1,3 @@
-/**
- *  * The Problems
-1. Reverse a String
-Task: Write a function that takes a string and returns it reversed.
-
-Input: string s
-Output: string
-Constraints: s.length <= 1000.
-Edge Case: Single character strings or empty strings.
-Hint: Look into built-in string slicing or a simple loop.
- */
 function reverseAString(s) {
     if (s === "")
         return "You cannot give a empty string";
@@ -25,7 +14,6 @@ function reverseAString(s) {
     return "Please give a 1000 character short string!!!";
 }
 ;
-reverseAString("Edge Case: Single character strings or empty strings.Hint: Look into built-in string slicing or a simple loop.");
 /**
  * 2. FizzBuzz
 Task: Print numbers from 1 to n. For multiples of 3, print "Fizz"; for multiples of 5, print "Buzz"; for multiples of both, print "FizzBuzz".
@@ -43,16 +31,6 @@ function fizzBuzz(n) {
 }
 ;
 // fizzBuzz(10);
-/**
- * 3. Find the Largest Number in an Array
-Task: Given an array of integers, return the largest value.
-
-Input: int[] nums
-Output: integer
-Constraints: Array will have at least one element.
-Edge Case: Array with all negative numbers.
-Hint: Initialize a variable with the first element of the array.
- */
 function findLargeNumber(numArr) {
     if (numArr.length === 0)
         return "Please provide at least one number";
@@ -66,17 +44,6 @@ function findLargeNumber(numArr) {
     return largeNumber;
 }
 ;
-findLargeNumber([1, 2, 3, 4, 5, 6]);
-/**
- * 4. Check for Palindrome
-Task: Determine if a word reads the same forward and backward.
-
-Input: string s
-Output: boolean
-Constraints: Case-insensitive, ignore non-alphanumeric characters if you want a challenge.
-Edge Case: "racecar" (true) vs "hello" (false).
-Hint: Compare the string with its reverse.
- */
 function checkPalindrome(word) {
     var reversedString = [];
     for (var i = 0; i <= word.length; i++) {
@@ -88,4 +55,44 @@ function checkPalindrome(word) {
     return false;
 }
 ;
-console.log(checkPalindrome("jidan"));
+function sumOfArray(nums) {
+    if (nums.length === 0)
+        return 0;
+    var sum = 0;
+    if (nums.length <= 500) {
+        for (var _i = 0, nums_1 = nums; _i < nums_1.length; _i++) {
+            var num = nums_1[_i];
+            sum = sum + num;
+        }
+    }
+    return sum;
+}
+;
+function countVowels(str) {
+    if (str.length === 0)
+        return 0;
+    var count = 0;
+    var strArray = str.split("");
+    var vowels = ["a", "e", "i", "o", "u"];
+    for (var i = 0; i < str.length; i++) {
+        if (strArray[i] === vowels[0] || strArray[i] === vowels[1] || strArray[i] === vowels[2] || strArray[i] === vowels[3] || strArray[i] === vowels[4]) {
+            count++;
+        }
+    }
+    return count;
+}
+;
+function calculateFactorial(num) {
+    if (num === 0)
+        return 1;
+    var fact = 1;
+    if (0 <= num) {
+        if (num <= 12) {
+            for (var i = 1; i <= num; i++) {
+                fact = fact * i;
+            }
+        }
+    }
+    return fact;
+}
+;

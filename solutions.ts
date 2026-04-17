@@ -1,17 +1,4 @@
-/**
- *  * The Problems
-1. Reverse a String
-Task: Write a function that takes a string and returns it reversed.
-
-Input: string s
-Output: string
-Constraints: s.length <= 1000.
-Edge Case: Single character strings or empty strings.
-Hint: Look into built-in string slicing or a simple loop.
- */
-
 function reverseAString(s: string): string {
-
     if (s === "") return "You cannot give a empty string";
     if (s.length === 1) return "You cannot provide a single character string";
     if (s.length <= 1000) {
@@ -24,8 +11,6 @@ function reverseAString(s: string): string {
     }
     return "Please give a 1000 character short string!!!";
 };
-
-reverseAString("Edge Case: Single character strings or empty strings.Hint: Look into built-in string slicing or a simple loop.");
 
 /**
  * 2. FizzBuzz
@@ -46,17 +31,6 @@ function fizzBuzz(n: number) {
 
 // fizzBuzz(10);
 
-/**
- * 3. Find the Largest Number in an Array
-Task: Given an array of integers, return the largest value.
-
-Input: int[] nums
-Output: integer
-Constraints: Array will have at least one element.
-Edge Case: Array with all negative numbers.
-Hint: Initialize a variable with the first element of the array.
- */
-
 function findLargeNumber(numArr: number[]): number | string {
     if (numArr.length === 0) return "Please provide at least one number";
     let largeNumber = numArr[0];
@@ -68,19 +42,6 @@ function findLargeNumber(numArr: number[]): number | string {
     return largeNumber;
 };
 
-findLargeNumber([1, 2, 3, 4, 5, 6]);
-
-/**
- * 4. Check for Palindrome
-Task: Determine if a word reads the same forward and backward.
-
-Input: string s
-Output: boolean
-Constraints: Case-insensitive, ignore non-alphanumeric characters if you want a challenge.
-Edge Case: "racecar" (true) vs "hello" (false).
-Hint: Compare the string with its reverse.
- */
-
 function checkPalindrome(word: string): boolean {
     let reversedString: string[] = [];
     for (let i = 0; i <= word.length; i++) {
@@ -90,4 +51,40 @@ function checkPalindrome(word: string): boolean {
     if (word.toLocaleLowerCase() === result.toLocaleLowerCase()) return true;
     return false;
 };
-// console.log(checkPalindrome("jidan"));
+
+function sumOfArray(nums: number[]): number {
+    if (nums.length === 0) return 0;
+    let sum = 0;
+    if (nums.length <= 500) {
+        for (let num of nums) {
+            sum = sum + num;
+        }
+    }
+    return sum;
+};
+
+function countVowels(str: string): number {
+    if (str.length === 0) return 0;
+    let count = 0;
+    const strArray = str.split("");
+    const vowels = ["a", "e", "i", "o", "u"];
+    for (let i = 0; i < str.length; i++) {
+        if (strArray[i] === vowels[0] || strArray[i] === vowels[1] || strArray[i] === vowels[2] || strArray[i] === vowels[3] || strArray[i] === vowels[4]) {
+            count++;
+        }
+    }
+    return count;
+};
+
+function calculateFactorial(num: number): number {
+    if (num === 0) return 1;
+    let fact = 1;
+    if (0 <= num) {
+        if (num <= 12) {
+            for (let i = 1; i <= num; i++) {
+                fact = fact * i;
+            }
+        }
+    }
+    return fact;
+};
