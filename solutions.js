@@ -5,7 +5,7 @@ function reverseAString(s) {
         return "You cannot provide a single character string";
     if (s.length <= 1000) {
         var reversedString = [];
-        for (var i = 0; i <= s.length; i++) {
+        for (var i = 0; i < s.length; i++) {
             reversedString.unshift(s[i]);
         }
         var result = reversedString.join("");
@@ -14,23 +14,6 @@ function reverseAString(s) {
     return "Please give a 1000 character short string!!!";
 }
 ;
-/**
- * 2. FizzBuzz
-Task: Print numbers from 1 to n. For multiples of 3, print "Fizz"; for multiples of 5, print "Buzz"; for multiples of both, print "FizzBuzz".
-
-Input: integer n
-Output: Printed lines or a list of strings.
-Constraints: 1 <= n <= 100.
-Edge Case: n = 1.
-Hint: Use the modulo operator % to check for remainders.
- */
-function fizzBuzz(n) {
-    for (var i = 1; i <= n; i++) {
-        console.log(i);
-    }
-}
-;
-// fizzBuzz(10);
 function findLargeNumber(numArr) {
     if (numArr.length === 0)
         return "Please provide at least one number";
@@ -46,7 +29,7 @@ function findLargeNumber(numArr) {
 ;
 function checkPalindrome(word) {
     var reversedString = [];
-    for (var i = 0; i <= word.length; i++) {
+    for (var i = 0; i < word.length; i++) {
         reversedString.unshift(word[i]);
     }
     var result = reversedString.join("");
@@ -72,7 +55,7 @@ function countVowels(str) {
     if (str.length === 0)
         return 0;
     var count = 0;
-    var strArray = str.split("");
+    var strArray = str.toLocaleLowerCase().split("");
     var vowels = ["a", "e", "i", "o", "u"];
     for (var i = 0; i < str.length; i++) {
         if (strArray[i] === vowels[0] || strArray[i] === vowels[1] || strArray[i] === vowels[2] || strArray[i] === vowels[3] || strArray[i] === vowels[4]) {
@@ -94,5 +77,61 @@ function calculateFactorial(num) {
         }
     }
     return fact;
+}
+;
+function evenOrOdd(nums) {
+    var evenNumber = [];
+    if (nums.length <= 100) {
+        for (var _i = 0, nums_2 = nums; _i < nums_2.length; _i++) {
+            var num = nums_2[_i];
+            if (num % 2 === 0) {
+                evenNumber.push(num);
+            }
+        }
+    }
+    return evenNumber;
+}
+;
+function findMin(numArr) {
+    if (numArr.length === 0)
+        return "Please provide at least one number";
+    var minNumber = numArr[0];
+    for (var _i = 0, numArr_2 = numArr; _i < numArr_2.length; _i++) {
+        var num = numArr_2[_i];
+        if (num > minNumber) {
+            minNumber = minNumber;
+        }
+        else {
+            minNumber = num;
+        }
+    }
+    return minNumber;
+}
+;
+function multiplicationTable(n) {
+    var string = [];
+    if (1 <= n) {
+        if (n <= 100) {
+            for (var i = 1; i <= 10; i++) {
+                string.push("".concat(n, " * ").concat(i, " = ").concat(n * i));
+            }
+        }
+    }
+    return string.join("\n");
+}
+;
+function checkPrimeNumber(num) {
+    if (num <= 1)
+        return false;
+    if (1 <= num) {
+        if (num <= 1000) {
+            for (var i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
 }
 ;

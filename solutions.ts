@@ -3,7 +3,7 @@ function reverseAString(s: string): string {
     if (s.length === 1) return "You cannot provide a single character string";
     if (s.length <= 1000) {
         let reversedString: string[] = [];
-        for (let i = 0; i <= s.length; i++) {
+        for (let i = 0; i < s.length; i++) {
             reversedString.unshift(s[i]);
         }
         const result = reversedString.join("");
@@ -11,25 +11,6 @@ function reverseAString(s: string): string {
     }
     return "Please give a 1000 character short string!!!";
 };
-
-/**
- * 2. FizzBuzz
-Task: Print numbers from 1 to n. For multiples of 3, print "Fizz"; for multiples of 5, print "Buzz"; for multiples of both, print "FizzBuzz".
-
-Input: integer n
-Output: Printed lines or a list of strings.
-Constraints: 1 <= n <= 100.
-Edge Case: n = 1.
-Hint: Use the modulo operator % to check for remainders.
- */
-
-function fizzBuzz(n: number) {
-    for (let i = 1; i <= n; i++) {
-        console.log(i);
-    }
-};
-
-// fizzBuzz(10);
 
 function findLargeNumber(numArr: number[]): number | string {
     if (numArr.length === 0) return "Please provide at least one number";
@@ -44,7 +25,7 @@ function findLargeNumber(numArr: number[]): number | string {
 
 function checkPalindrome(word: string): boolean {
     let reversedString: string[] = [];
-    for (let i = 0; i <= word.length; i++) {
+    for (let i = 0; i < word.length; i++) {
         reversedString.unshift(word[i]);
     }
     const result = reversedString.join("");
@@ -66,7 +47,7 @@ function sumOfArray(nums: number[]): number {
 function countVowels(str: string): number {
     if (str.length === 0) return 0;
     let count = 0;
-    const strArray = str.split("");
+    const strArray = str.toLocaleLowerCase().split("");
     const vowels = ["a", "e", "i", "o", "u"];
     for (let i = 0; i < str.length; i++) {
         if (strArray[i] === vowels[0] || strArray[i] === vowels[1] || strArray[i] === vowels[2] || strArray[i] === vowels[3] || strArray[i] === vowels[4]) {
@@ -87,4 +68,55 @@ function calculateFactorial(num: number): number {
         }
     }
     return fact;
+};
+
+function evenOrOdd(nums: number[]): number[] {
+    const evenNumber: number[] = [];
+    if (nums.length <= 100) {
+        for (let num of nums) {
+            if (num % 2 === 0) {
+                evenNumber.push(num);
+            }
+        }
+    }
+    return evenNumber;
+};
+
+function findMin(numArr: number[]): number | string {
+    if (numArr.length === 0) return "Please provide at least one number";
+    let minNumber = numArr[0];
+    for (let num of numArr) {
+        if (num > minNumber) {
+            minNumber = minNumber;
+        } else {
+            minNumber = num;
+        }
+    }
+    return minNumber;
+};
+
+function multiplicationTable(n: number) {
+    const string = [];
+    if (1 <= n) {
+        if (n <= 100) {
+            for (let i = 1; i <= 10; i++) {
+                string.push(`${n} * ${i} = ${n * i}`);
+            }
+        }
+    }
+    return string.join("\n");
+};
+
+function checkPrimeNumber(num: number): boolean {
+    if (num <= 1) return false;
+    if (1 <= num) {
+        if (num <= 1000) {
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
 };
