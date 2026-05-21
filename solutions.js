@@ -14,6 +14,22 @@ function reverseAString(s) {
     return "Please give a 1000 character short string!!!";
 }
 ;
+function fizzBuzz(n) {
+    for (var i = 1; i <= n; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log("FizzBuzz");
+        }
+        else if (i % 3 === 0) {
+            console.log("Fizz");
+        }
+        else if (i % 5 === 0) {
+            console.log("Buzz");
+        }
+        else {
+            console.log(i);
+        }
+    }
+}
 function findLargeNumber(numArr) {
     if (numArr.length === 0)
         return "Please provide at least one number";
@@ -92,6 +108,16 @@ function evenOrOdd(nums) {
     return evenNumber;
 }
 ;
+function generateFibonacci(n) {
+    if (n === 1)
+        return [0];
+    var sequence = [0, 1];
+    for (var i = 2; i < n; i++) {
+        sequence.push(sequence[i - 1] + sequence[i - 2]);
+    }
+    return sequence;
+}
+;
 function findMin(numArr) {
     if (numArr.length === 0)
         return "Please provide at least one number";
@@ -133,5 +159,36 @@ function checkPrimeNumber(num) {
         }
     }
     return true;
+}
+;
+// function removeDuplicate(nums: number[]):number[] {
+//     return [...new Set(nums)]
+// }
+// function removeDuplicate(nums: number[]): number[]{
+//     return nums.filter((item, index) => nums.indexOf(item) === index);
+// }
+
+function removeDuplicate(nums) {
+    var result = [];
+    for (var _i = 0, nums_3 = nums; _i < nums_3.length; _i++) {
+        var num = nums_3[_i];
+        if (!result.includes(num)) {
+            result.push(num);
+        }
+    }
+    return result;
+}
+;
+function celsiusToFahhrenheit(celsius) {
+    return (celsius * 9 / 5) + 32;
+}
+function countOccurrences(str, char) {
+    var count = 0;
+    for (var i = 0; i < str.length; i++) {
+        if (str[i] === char) {
+            count++;
+        }
+    }
+    return count;
 }
 ;
