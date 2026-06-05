@@ -70,6 +70,7 @@
 // Input: 'banana', 'a'  → Output: 3
 // Hint: Use split(char).length - 1 or a loop.
 
+
 // Day 3 — Arrays & Array Methods
  
 // Problem 11: Find the Sum of an Array  [Easy]
@@ -79,21 +80,11 @@
 // Hint: Use reduce() or a for loop.
 
  
- 
- 
- 
- 
- 
 // Problem 12: Find Maximum Value in Array  [Easy]
 // Description: Write a function findMax(arr) that returns the largest number in an array without using Math.max().
 // Example:
 // Input: [3, 1, 7, 2, 9]  → Output: 9
 // Hint: Loop through and track the largest value found.
-
- 
- 
- 
- 
  
  
 // Problem 13: Remove Duplicates from Array  [Easy]
@@ -103,11 +94,6 @@
 // Hint: Use Set or filter() with indexOf().
 
  
- 
- 
- 
- 
- 
 // Problem 14: Flatten a Nested Array  [Medium]
 // Description: Write a function flattenArray(arr) that flattens one level of a nested array.
 // Example:
@@ -115,13 +101,45 @@
 // Hint: Use flat() or reduce() with concat().
 
  
- 
- 
- 
- 
- 
 // Problem 15: Chunk an Array  [Medium]
 // Description: Write a function chunkArray(arr, size) that splits an array into chunks of a given size.
 // Example:
 // Input: [1,2,3,4,5], 2  → Output: [[1,2],[3,4],[5]]
 // Hint: Use a while loop with slice().
+
+
+// Day 4 — Objects & Loops
+ 
+// Problem 16: Count Object Properties  [Easy]
+// Description: Write a function countProperties(obj) that returns the number of properties in an object.
+// Example:
+// Input: {a: 1, b: 2, c: 3}  → Output: 3
+// Hint: Use Object.keys().length.
+
+
+// Problem 17: Merge Two Objects  [Easy]
+// Description: Write a function mergeObjects(obj1, obj2) that merges two objects into one. If keys conflict, the second object's values win.
+// Example:
+// Input: {a:1}, {b:2}  → Output: {a:1, b:2}
+// Hint: Use the spread operator or Object.assign().
+ 
+ 
+// Problem 18: FizzBuzz  [Easy]
+// Description: Write a function fizzBuzz(n) that prints numbers from 1 to n. For multiples of 3 print 'Fizz', multiples of 5 print 'Buzz', multiples of both print 'FizzBuzz'.
+// Example:
+// Input: 15Output: 1,2,Fizz,4,Buzz,Fizz,7,8,Fizz,Buzz,11,Fizz,13,14,FizzBuzz
+// Hint: Check divisibility with the % operator in the right order.
+  
+ 
+// Problem 19: Invert an Object  [Easy]
+// Description: Write a function invertObject(obj) that swaps the keys and values of an object.
+// Example:
+// Input: {a: 1, b: 2}  → Output: {1: 'a', 2: 'b'}
+// Hint: Use Object.entries() and reduce(). 
+ 
+ 
+// Problem 20: Find Duplicate Values in Array of Objects  [Medium]
+// Description: Given an array of objects, write a function findDuplicateNames(arr) that returns names that appear more than once.
+// Example:
+// Input: [{name:'Ali'},{name:'Sara'},{name:'Ali'}]Output: ['Ali']
+// Hint: Use a frequency map (object) to count occurrences.
