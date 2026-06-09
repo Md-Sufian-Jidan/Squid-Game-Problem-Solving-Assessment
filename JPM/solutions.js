@@ -207,7 +207,96 @@ const invertObject = (obj) => {
 // console.log(invertObject({a: 1, b: 2}));
 
 const findDuplicateNames = (arr) => {
-    return arr.map((ar) => console.log(arr))
+    const seen = new Set();
+    const duplicates = new Set();
+    for (const item of arr) {
+        if (seen.has(item.name)) {
+            duplicates.add(item.name);
+        }
+    }
+    return [...duplicates];
 };
 
-console.log(findDuplicateNames([{ name: 'Ali' }, { name: 'Sara' }, { name: 'Ali' }]));
+// console.log(findDuplicateNames([{ name: 'Ali' }, { name: 'Sara' }, { name: 'Ali' }]));
+
+const factorial = (n) => {
+    if (n === 0) {
+        return 1;
+    }
+    let fact = 1;
+    for (let i = 1; i <= n; i++) {
+        fact = fact * i;
+    }
+    return fact;
+};
+
+// console.log(factorial(5));
+
+
+const fibonacci = (n) => {
+    if (n === 1) {
+        return [0];
+    }
+    let fibo = [0, 1];
+    for (let i = 2; i < n; i++) {
+        fibo.push(fibo[i - 1] + fibo[i - 2])
+    }
+    return fibo;
+};
+
+// console.log(fibonacci(3));
+
+const makeCounter = () => {
+    let count = 0;
+    return {
+        increment: function () {
+            return count++;
+        },
+        decrement: function () {
+            return count--;
+        },
+        getCount: function () {
+            return count;
+        }
+    }
+};
+
+// const plus = makeCounter(); // 0
+// console.log(plus.increment()) // 1
+// console.log(plus.increment()) // 2
+// console.log(plus.increment()) // 3
+// console.log(plus.increment()) // 4
+// console.log(plus.decrement()) // 3
+// console.log(plus.decrement()) // 2
+// console.log(plus.getCount()); // 2
+
+const curry = (fn) => {
+    return function curried(...args) {
+        if (args.length >= fn.length) {
+            return fn(...args);
+        }
+        return (...moreargs) => curried(...args.concat(moreargs));
+    }
+};
+
+// const add = curry((a, b) => a + b);
+// console.log(add(2)(3));
+
+const memorize = (fn) => { 
+  let cache = {}; 
+  
+  return function memo(...args) { 
+    const key = JSON.stringify(args); 
+    if (key in cache) { 
+      return cache[key]; 
+    } 
+    const result = fn(...args); 
+    cache[key] = result; 
+    return result; 
+  }; 
+}; 
+
+// const add = (a, b) => a + b; 
+// const memoizedAdd = memorize(add);
+// console.log(memoizedAdd(2, 3)); // 5 (First time: computes result)
+// console.log(memoizedAdd(2, 3)); // 5 (Second time: pulls from cache)
