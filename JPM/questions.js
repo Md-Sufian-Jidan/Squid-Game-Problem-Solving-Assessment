@@ -143,3 +143,75 @@
 // Example:
 // Input: [{name:'Ali'},{name:'Sara'},{name:'Ali'}]Output: ['Ali']
 // Hint: Use a frequency map (object) to count occurrences.
+
+// Day 5 — Functions & Scope
+ 
+// Problem 21: Factorial (Recursive)  [Easy]
+// Description: Write a recursive function factorial(n) that returns the factorial of a non-negative integer n.
+// Example:
+// Input: 5  → Output: 120 (5×4×3×2×1)Input: 0  → Output: 1
+// Hint: Base case: factorial(0) = 1. Recursive case: n * factorial(n-1).
+
+
+// Problem 22: Fibonacci Sequence  [Easy]
+// Description: Write a function fibonacci(n) that returns the nth number in the Fibonacci sequence.
+// Example:
+// Input: 6  → Output: 8 (0,1,1,2,3,5,8...)
+// Hint: Try both iterative and recursive approaches.
+ 
+ 
+// Problem 23: Create a Counter with Closure  [Medium]
+// Description: Write a function makeCounter() that returns an object with increment, decrement, and getCount methods using closure.
+// Example:
+// const c = makeCounter();c.increment(); c.increment();c.getCount(); // 2
+// Hint: Use a variable inside the outer function that inner functions can access.
+
+ 
+// Problem 24: Curry a Function  [Medium]
+// Description: Write a function curry(fn) that converts a function of two arguments into a curried version.
+// Example:
+// const add = curry((a,b) => a+b);add(2)(3); // 5
+// Hint: Return a function from inside a function.
+
+ 
+// Problem 25: Memoize a Function  [Medium]
+// Description: Write a function memoize(fn) that caches the results of a function so repeated calls with the same input return the cached result.
+// Example:
+// const memoAdd = memoize(n => n + 10);memoAdd(5); // 15 (computed)memoAdd(5); // 15 (from cache)
+// Hint: Use an object as a cache inside the outer function.
+
+// Day 6 — ES6+ Features
+ 
+// Problem 26: Destructure and Rename  [Easy]
+// Description: Given a user object, use destructuring to extract firstName, lastName, and age, renaming firstName to name.
+// Example:
+// const user = {firstName:'Sara', lastName:'Khan', age:25};// Extract: name='Sara', lastName='Khan', age=25
+// Hint: Use: const { firstName: name, lastName, age } = user; 
+ 
+ 
+// Problem 27: Merge Arrays with Spread  [Easy]
+// Description: Write a function mergeArrays(...arrays) that accepts any number of arrays and merges them into one using the spread operator.
+// Example:
+// Input: [1,2], [3,4], [5]Output: [1,2,3,4,5]
+// Hint: Use rest parameters and spread inside reduce or flat.
+
+
+// Problem 28: Promise Chain  [Medium]
+// Description: Write a function delay(ms) that returns a Promise that resolves after ms milliseconds. Then chain two delays: first 1 second, then 2 seconds, logging a message after each.
+// Example:
+// delay(1000).then(() => { console.log('1 sec'); return delay(2000); }).then(() => console.log('3 sec total'));
+// Hint: Use new Promise with setTimeout inside.
+
+
+// Problem 29: Async/Await Fetch Simulation  [Medium]
+// Description: Write an async function getUserData(id) that simulates fetching user data by awaiting a Promise that resolves after 500ms with a mock user object.
+// Example:
+// await getUserData(1);// returns {id:1, name:'Test User'}
+// Hint: Use async/await with a Promise that wraps setTimeout. 
+ 
+ 
+// Problem 30: Optional Chaining & Nullish Coalescing  [Easy]
+// Description: Given a nested object that may have missing properties, safely access a deeply nested value using optional chaining (?.) and provide a default using nullish coalescing (??).
+// Example:
+// const user = {profile: null};const city = user?.profile?.address?.city ?? 'Unknown';// Output: 'Unknown'
+// Hint: Chain ?. for each level; use ?? for the fallback.

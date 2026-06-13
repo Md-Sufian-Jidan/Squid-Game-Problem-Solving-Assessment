@@ -300,3 +300,29 @@ const memorize = (fn) => {
 // const memoizedAdd = memorize(add);
 // console.log(memoizedAdd(2, 3)); // 5 (First time: computes result)
 // console.log(memoizedAdd(2, 3)); // 5 (Second time: pulls from cache)
+
+const user = { firstName: 'Sara', lastName: 'Khan', age: 25 };
+const { firstName: name, lastName, age } = user;
+// console.log(name, lastName, age);
+
+const mergeArrays = (...arrays) => {
+    return arrays.reduce((acc, arr) => [...acc, ...arr], []);
+};
+// console.log(mergeArrays([1, 2], [3, 4], [5]));
+
+// Promise.resolve("Hello").then((res) => console.log(res));
+
+const getUserData = async (id) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve({ id, name: 'Test User' });
+        }, 500);
+    });
+};
+
+// await getUserData(1).then((data) => console.log(data));
+
+
+const user1 = {profile: null};
+const city = user1?.profile?.address?.city ?? 'Unknown';
+// console.log(city)
