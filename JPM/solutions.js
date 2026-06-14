@@ -282,19 +282,19 @@ const curry = (fn) => {
 // const add = curry((a, b) => a + b);
 // console.log(add(2)(3));
 
-const memorize = (fn) => { 
-  let cache = {}; 
-  
-  return function memo(...args) { 
-    const key = JSON.stringify(args); 
-    if (key in cache) { 
-      return cache[key]; 
-    } 
-    const result = fn(...args); 
-    cache[key] = result; 
-    return result; 
-  }; 
-}; 
+const memorize = (fn) => {
+    let cache = {};
+
+    return function memo(...args) {
+        const key = JSON.stringify(args);
+        if (key in cache) {
+            return cache[key];
+        }
+        const result = fn(...args);
+        cache[key] = result;
+        return result;
+    };
+};
 
 // const add = (a, b) => a + b; 
 // const memoizedAdd = memorize(add);
@@ -323,6 +323,101 @@ const getUserData = async (id) => {
 // await getUserData(1).then((data) => console.log(data));
 
 
-const user1 = {profile: null};
+const user1 = { profile: null };
 const city = user1?.profile?.address?.city ?? 'Unknown';
 // console.log(city)
+
+
+const debounceSearch = (fn, delay) => {
+    let timeout;
+
+    return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            fn(...args);
+        }, delay);
+    }
+};
+
+// debounceSearch((query) => console.log(`Searching for ${query}...`), 300)("JavaScript");
+
+
+const throttledScroll = (fn, limit) => {
+    let lastFunc;
+    let lastRan;
+    return function (...args) {
+        if (!lastRan) {
+            fn(...args);
+            lastRan = Date.now();
+        }
+        else {
+            clearTimeout(lastFunc);
+        }
+    }
+};
+
+// window.addEventListener('scroll', throttledScroll(() => console.log('Scrolled!'), 1000));
+
+
+const deepClone = (obj) => {
+    if (obj === null || typeof obj !== 'object') {
+        return obj;
+    };
+
+    if (Array.isArray(obj)) {
+        const cloneArr = [];
+        for (item of obj) {
+            cloneArr[i] = deepClone(obj[i]);
+        }
+        return cloneArr;
+    }
+    const cloneObj = {};
+    for (let key in obj) {
+        cloneObj[key] = deepClone(obj[key]);
+    }
+    return cloneObj;
+};
+
+class EventEmitter {
+    constructor() {
+        this.events = {};
+    }
+
+    on(event, listener) {
+        if (!this.events[event]) {
+            this.events[event] = [];
+        }
+
+        this.events[event].push(listener);
+    }
+
+    emit(event, ...args) {
+        if (!this.events[event]) {
+            return;
+        }
+
+        for (const listener of this.events[event]) {
+            listener(...args);
+        }
+    }
+
+    off(event, listener) {
+        if (!this.events[event]) {
+            return;
+        }
+
+        this.events[event] =
+            this.events[event].filter(fn => fn !== listener);
+    }
+};
+
+
+function myMap(arr, callback) {
+    const result = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        result.push(callback(arr[i], i, arr));
+    }
+
+    return result;
+}
